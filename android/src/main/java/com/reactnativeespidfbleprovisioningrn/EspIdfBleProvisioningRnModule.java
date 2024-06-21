@@ -229,10 +229,10 @@ public class EspIdfBleProvisioningRnModule extends ReactContextBaseJavaModule {
   public void scanBleDevices(String prefix, Promise promise) {
     try {
       if (ActivityCompat.checkSelfPermission(getCurrentActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
-        ActivityCompat.checkSelfPermission(getCurrentActivity(), Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED ||
-        ActivityCompat.checkSelfPermission(getCurrentActivity(), Manifest.permission.BLUETOOTH_ADMIN) != PackageManager.PERMISSION_GRANTED) {
+        ActivityCompat.checkSelfPermission(getCurrentActivity(), Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED ||
+        ActivityCompat.checkSelfPermission(getCurrentActivity(), Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
         promise.reject("Permissions not granted",
-          "Required permissions: ACCESS_FINE_LOCATION, BLUETOOTH, BLUETOOTH_ADMIN",
+          "Required permissions: ACCESS_FINE_LOCATION, BLUETOOTH_SCAN, BLUETOOTH_CONNECT",
           new Exception());
         return;
       }
